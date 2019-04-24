@@ -51,7 +51,7 @@ input::placeholder {
 }
 
 .search {
-    background-image: url(./search.svg); 
+    background-image: url(/search.d2a88384.svg); 
     background-repeat: no-repeat; 
     background-position: 10px;
 }
@@ -118,3 +118,5 @@ input::placeholder {
     width: 60px;
     height: 23px;
 }
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
