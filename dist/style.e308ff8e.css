@@ -81,9 +81,8 @@ input::placeholder {
     display: inline-block;
     color: gray;
     padding-left: 15px;
-    
-
-    
+    position: relative;
+    top: 3px;
 }
 
 .username {
@@ -91,12 +90,16 @@ input::placeholder {
     height: 15px;
     display: inline-block;
     box-sizing: border-box;
+    position: relative;
+    top: 3px;
 }
 
 .subject {
     width: 175px;
     height: 15px;
     display: inline-block;
+    position: relative;
+    top: 4px;
 }
 
 .contentMail {
@@ -105,7 +108,8 @@ input::placeholder {
     display: inline-block;
     color: gray;
     font-weight: 400;
-    
+    position: relative;
+    top: 3px;
 }
 
 .favImg {
@@ -113,7 +117,7 @@ input::placeholder {
     height: 25px;
     margin: 0 3px 0 10px;
     position: relative;
-    top: 9px;
+    top: 10px;
     
 }
 
