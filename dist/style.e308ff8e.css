@@ -3,10 +3,9 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: transparent;
     overflow-x: hidden;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-    background-color: #c0c0c00f;
+    background-color: #F7F7F9;
 }
 
 .container {
@@ -62,6 +61,8 @@ input::placeholder {
     display: inline-block;
     box-sizing: border-box;
     margin-top: 30px;
+    background-color: #EEE5E5;
+
 }
 
 .eMail {
@@ -69,19 +70,19 @@ input::placeholder {
     height: 55px;
     box-sizing: border-box;
     display: inline-block;
-    background-color: white;
-    margin-bottom: 3px;
-    
-    
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 1px;
 }
 
 .date {
-    width: 62px;
+    width: 75px;
     height: 15px;
     box-sizing: border-box;
     display: inline-block;
     color: gray;
+    padding-left: 15px;
     
+
     
 }
 
@@ -111,12 +112,16 @@ input::placeholder {
     width: 60px;
     height: 25px;
     margin: 0 3px 0 10px;
+    position: relative;
+    top: 9px;
     
 }
 
 .deleteImg{
-    width: 60px;
+    width: 40px;
     height: 23px;
+    position: relative;
+    top: 9px;
 }
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
