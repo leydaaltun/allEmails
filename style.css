@@ -109,7 +109,7 @@ input::placeholder {
     color: gray;
     font-weight: 400;
     position: relative;
-    top: 3px;
+    top: 5px;
 }
 
 .favImg {
