@@ -81,10 +81,27 @@ const input = document.querySelector('input')
 input.addEventListener('input', function(event){
     const searchKeyWord = event.target.value
     //console.log(searchKeyWord)
+    
+    const filteredMails = allMails.filter(function({date,from,subject,mail}) {
 
-    const filteredMails = allMails.filter(function(mail){
-        return mail.subject.includes(searchKeyWord)
+        if(date.includes(searchKeyWord)) {
+            return true
+        }
+        if(from.includes(searchKeyWord)) {
+            return true
+        }
+        if(subject.includes(searchKeyWord)) {
+            return true
+        }
+        if(mail.includes(searchKeyWord)) {
+            return true
+        }
+        return false
+
+        
     })
+
+    
 
     console.log(filteredMails)
 

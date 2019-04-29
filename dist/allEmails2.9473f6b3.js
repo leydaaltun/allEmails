@@ -186,8 +186,29 @@ var input = document.querySelector('input'); //console.log(input)
 input.addEventListener('input', function (event) {
   var searchKeyWord = event.target.value; //console.log(searchKeyWord)
 
-  var filteredMails = allMails.filter(function (mail) {
-    return mail.subject.includes(searchKeyWord);
+  var filteredMails = allMails.filter(function (_ref2) {
+    var date = _ref2.date,
+        from = _ref2.from,
+        subject = _ref2.subject,
+        mail = _ref2.mail;
+
+    if (date.includes(searchKeyWord)) {
+      return true;
+    }
+
+    if (from.includes(searchKeyWord)) {
+      return true;
+    }
+
+    if (subject.includes(searchKeyWord)) {
+      return true;
+    }
+
+    if (mail.includes(searchKeyWord)) {
+      return true;
+    }
+
+    return false;
   });
   console.log(filteredMails);
   showMails(filteredMails);
