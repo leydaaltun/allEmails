@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"allEmails.js":[function(require,module,exports) {
+})({"allEmails2.js":[function(require,module,exports) {
 var allMails = [{
   date: '23 Jan',
   from: 'Susanne',
@@ -161,42 +161,37 @@ var allMails = [{
   mail: 'Dear Leyda,to get your mazbata...',
   isFavorited: false
 }];
-var html = ' ';
-
-function mail(_ref) {
-  var date = _ref.date,
-      from = _ref.from,
-      subject = _ref.subject,
-      mail = _ref.mail,
-      isFavorited = _ref.isFavorited;
-  html += "<div class=\"eMail\">\n    <span class=\"date\">".concat(date, "</span>\n    <span class=\"username\">").concat(from, "</span>\n    <span class=\"subject\">").concat(subject, "</span>\n    <p class=\"contentMail\">").concat(mail, "</p> </div>");
-} //console.log(mail(allMails[3]))
-
-
-allMails.forEach(mail); //console.log(html)
-
 var container = document.querySelector('.inboxContainer'); //console.log(container)
 
-container.innerHTML = html;
+function showMails(allMails) {
+  var html = '';
+  allMails.forEach(function (_ref) {
+    var date = _ref.date,
+        from = _ref.from,
+        subject = _ref.subject,
+        mail = _ref.mail;
+    html += "<div class=\"eMail\">\n        <span class=\"date\">".concat(date, "</span>\n        <span class=\"username\">").concat(from, "</span>\n        <span class=\"subject\">").concat(subject, "</span>\n        <p class=\"contentMail\">").concat(mail, "</p> </div>");
+  }); //container.innerHTML = html
+
+  if (html === '') {
+    container.innerHTML = '🤢';
+  } else {
+    container.innerHTML = html;
+  }
+}
+
+showMails(allMails);
 var input = document.querySelector('input'); //console.log(input)
-// input.addEventListener('change',(event) => {
-//     const filteredMail = mail.filter(mail => {
-//         html += filteredMail
-//     })
-// })
 
-input.addEventListener('input', x);
+input.addEventListener('input', function (event) {
+  var searchKeyWord = event.target.value; //console.log(searchKeyWord)
 
-function x(event) {
-  console.log(event);
-  var searchKeyWord = event.target.value;
   var filteredMails = allMails.filter(function (mail) {
     return mail.subject.includes(searchKeyWord);
   });
-  var html = '';
-  filteredMails.forEach(mail);
-  console.log(html);
-}
+  console.log(filteredMails);
+  showMails(filteredMails);
+});
 },{}],"../../../Users/leyda/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -225,7 +220,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62527" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49301" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -400,5 +395,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../Users/leyda/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","allEmails.js"], null)
-//# sourceMappingURL=/allEmails.3980ef57.js.map
+},{}]},{},["../../../Users/leyda/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","allEmails2.js"], null)
+//# sourceMappingURL=/allEmails2.9473f6b3.js.map
