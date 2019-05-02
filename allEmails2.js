@@ -50,6 +50,8 @@ let allMails = [
     }
 ]
 
+// is favorited ekle.containera event listener ekle (click)
+
 const container = document.querySelector('.inboxContainer')
 //console.log(container)
 
@@ -79,21 +81,21 @@ const input = document.querySelector('input')
 //console.log(input)
 
 input.addEventListener('input', function(event){
-    const searchKeyWord = event.target.value
+    const searchKeyWord = event.target.value.toLowerCase()
     //console.log(searchKeyWord)
     
     const filteredMails = allMails.filter(function({date,from,subject,mail}) {
 
-        if(date.includes(searchKeyWord)) {
+        if(date.toLowerCase().includes(searchKeyWord)) {
             return true
         }
-        if(from.includes(searchKeyWord)) {
+        if(from.toLowerCase().includes(searchKeyWord)) {
             return true
         }
-        if(subject.includes(searchKeyWord)) {
+        if(subject.toLowerCase().includes(searchKeyWord)) {
             return true
         }
-        if(mail.includes(searchKeyWord)) {
+        if(mail.toLowerCase().includes(searchKeyWord)) {
             return true
         }
         return false
@@ -108,3 +110,6 @@ input.addEventListener('input', function(event){
     
     showMails(filteredMails)
 })
+
+
+//

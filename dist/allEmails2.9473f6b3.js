@@ -160,7 +160,8 @@ var allMails = [{
   subject: 'Your e-mazbata is here',
   mail: 'Dear Leyda,to get your mazbata...',
   isFavorited: false
-}];
+}]; // is favorited ekle.containera event listener ekle (click)
+
 var container = document.querySelector('.inboxContainer'); //console.log(container)
 
 function showMails(allMails) {
@@ -184,7 +185,7 @@ showMails(allMails);
 var input = document.querySelector('input'); //console.log(input)
 
 input.addEventListener('input', function (event) {
-  var searchKeyWord = event.target.value; //console.log(searchKeyWord)
+  var searchKeyWord = event.target.value.toLowerCase(); //console.log(searchKeyWord)
 
   var filteredMails = allMails.filter(function (_ref2) {
     var date = _ref2.date,
@@ -192,19 +193,19 @@ input.addEventListener('input', function (event) {
         subject = _ref2.subject,
         mail = _ref2.mail;
 
-    if (date.includes(searchKeyWord)) {
+    if (date.toLowerCase().includes(searchKeyWord)) {
       return true;
     }
 
-    if (from.includes(searchKeyWord)) {
+    if (from.toLowerCase().includes(searchKeyWord)) {
       return true;
     }
 
-    if (subject.includes(searchKeyWord)) {
+    if (subject.toLowerCase().includes(searchKeyWord)) {
       return true;
     }
 
-    if (mail.includes(searchKeyWord)) {
+    if (mail.toLowerCase().includes(searchKeyWord)) {
       return true;
     }
 
@@ -212,7 +213,7 @@ input.addEventListener('input', function (event) {
   });
   console.log(filteredMails);
   showMails(filteredMails);
-});
+}); //
 },{}],"../../../Users/leyda/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -241,7 +242,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49301" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49952" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
