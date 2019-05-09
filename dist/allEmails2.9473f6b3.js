@@ -123,37 +123,37 @@ var allMails = [{
   from: 'Susanne',
   subject: 'About holiday at July',
   mail: 'Dear Leyda,as you probably know...',
-  isFavorited: true
+  isFavorited: false
 }, {
   date: '22 Jan',
   from: 'Zeit Now',
   subject: 'Email confirmation',
   mail: 'Please confrim your email for 20th time..',
-  isFavorited: true
+  isFavorited: false
 }, {
   date: '19 Jan',
   from: 'Facebook',
   subject: 'New message',
   mail: 'You got a message from a random per..',
-  isFavorited: true
+  isFavorited: false
 }, {
   date: '18 Jan',
   from: 'Github',
   subject: 'Forgot your password',
   mail: 'Click on this link to reset your passwor..',
-  isFavorited: true
+  isFavorited: false
 }, {
   date: '15 Jan',
   from: 'Roboard',
   subject: 'Bender sent you a DM',
   mail: 'KILL ALL HUMANS',
-  isFavorited: true
+  isFavorited: false
 }, {
   date: '11 Jan',
   from: 'SuperOffer',
   subject: 'Earn $1000 from home',
   mail: 'CLICK HERE TO GET YOUR REWARD',
-  isFavorited: true
+  isFavorited: false
 }, {
   date: '10 Jan',
   from: 'YSK',
@@ -164,18 +164,55 @@ var allMails = [{
 
 var container = document.querySelector('.inboxContainer'); //console.log(container)
 
+container.addEventListener('click', function (event) {
+  //console.log(event)
+  var parent = event.target.parentElement; //console.log(parent)
+
+  var index = parent.dataset.index;
+  var deleteButton = document.querySelector('.deleteImg'); //console.log(deleteButton)
+
+  var overlay = document.querySelector('.overlay'); //console.log(overlay)
+
+  if (event.target.classList.contains('star')) {
+    console.log("you've clicked on ".concat(index));
+
+    if (allMails[index].isFavorited) {
+      allMails[index].isFavorited = false;
+    } else {
+      allMails[index].isFavorited = true;
+    }
+  }
+
+  if (event.target.classList.contains('deleteImg')) {
+    document.body.classList.add('modal-visible');
+  } // if(event.target.classList.contains('deleteImg')) {
+  //     allMails.splice(index,1)
+  // }
+
+
+  showMails(allMails);
+});
+
 function showMails(allMails) {
   var html = '';
-  allMails.forEach(function (_ref) {
+  allMails.forEach(function (_ref, index) {
     var date = _ref.date,
         from = _ref.from,
         subject = _ref.subject,
-        mail = _ref.mail;
-    html += "<div class=\"eMail\">\n        <span class=\"date\">".concat(date, "</span>\n        <span class=\"username\">").concat(from, "</span>\n        <span class=\"subject\">").concat(subject, "</span>\n        <p class=\"contentMail\">").concat(mail, "</p> </div>");
+        mail = _ref.mail,
+        isFavorited = _ref.isFavorited;
+    //console.log(index)
+    var starClass = 'star favImg';
+
+    if (isFavorited) {
+      starClass = 'star favedImg';
+    }
+
+    html += "<div class=\"eMail\" data-index=\"".concat(index, "\">\n        <span class=\"date\">").concat(date, "</span>\n        <span class=\"username\">").concat(from, "</span>\n        <span class=\"subject\">").concat(subject, "</span>\n        <p class=\"contentMail\">").concat(mail, "</p>\n        <button class=\"").concat(starClass, "\"  ></button>\n        <button class=\"deleteImg\"></button>");
   }); //container.innerHTML = html
 
   if (html === '') {
-    container.innerHTML = '🤢';
+    container.innerHTML = '';
   } else {
     container.innerHTML = html;
   }
@@ -213,7 +250,7 @@ input.addEventListener('input', function (event) {
   });
   console.log(filteredMails);
   showMails(filteredMails);
-}); //
+});
 },{}],"../../../Users/leyda/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -242,7 +279,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49952" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60806" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
