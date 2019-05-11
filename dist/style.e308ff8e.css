@@ -152,8 +152,12 @@ input::placeholder {
     color: white;
 }
 
-body.modal-visible .overlay {
-    visibility: visible;
+.dialog {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    visibility: hidden;
 }
 
 
