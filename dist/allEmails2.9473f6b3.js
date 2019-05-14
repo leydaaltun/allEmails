@@ -172,6 +172,12 @@ container.addEventListener('click', function (event) {
   var parent = event.target.parentElement; //console.log(parent)
 
   var index = parent.dataset.index;
+  var yesButton = document.querySelector('.deleteMail'); //console.log(yesButton)
+
+  yesButton.addEventListener('click', function (event) {
+    console.log(event);
+    allMails.splice(index, 1);
+  });
   var deleteButton = document.querySelector('.deleteImg'); //console.log(deleteButton)
 
   var overlay = document.querySelector('.overlay'); //console.log(overlay)
