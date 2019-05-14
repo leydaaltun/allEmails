@@ -163,6 +163,7 @@ var allMails = [{
 }];
 
 function showConfirmationDialog(yesAction) {
+  document.body.classList.add('dialog-visible');
   var overlay = document.querySelector('.overlay');
   overlay.addEventListener('click', function (event) {
     document.body.classList.remove('dialog-visible');
@@ -195,12 +196,10 @@ container.addEventListener('click', function (event) {
     }
   }
 
-  showConfirmationDialog(function () {
-    allMails.splice(index, 1);
-  });
-
   if (event.target.classList.contains('deleteImg')) {
-    document.body.classList.add('dialog-visible');
+    showConfirmationDialog(function () {
+      allMails.splice(index, 1);
+    });
   }
 
   showMails(allMails);
