@@ -161,10 +161,17 @@ var allMails = [{
   mail: 'Dear Leyda,to get your mazbata...',
   isFavorited: false
 }];
-var overlay = document.querySelector('.overlay');
-overlay.addEventListener('click', function (event) {
-  document.body.classList.remove('dialog-visible');
-});
+
+function showConfirmationDialog(yesAction) {
+  var overlay = document.querySelector('.overlay');
+  overlay.addEventListener('click', function (event) {
+    document.body.classList.remove('dialog-visible');
+  });
+  var yesButton = document.querySelector('.deleteMail'); //console.log(yesButton)
+
+  yesButton.addEventListener('click', yesAction);
+}
+
 var container = document.querySelector('.inboxContainer'); //console.log(container)
 
 container.addEventListener('click', function (event) {
@@ -172,12 +179,6 @@ container.addEventListener('click', function (event) {
   var parent = event.target.parentElement; //console.log(parent)
 
   var index = parent.dataset.index;
-  var yesButton = document.querySelector('.deleteMail'); //console.log(yesButton)
-
-  yesButton.addEventListener('click', function (event) {
-    console.log(event);
-    allMails.splice(index, 1);
-  });
   var deleteButton = document.querySelector('.deleteImg'); //console.log(deleteButton)
 
   var overlay = document.querySelector('.overlay'); //console.log(overlay)
@@ -194,8 +195,12 @@ container.addEventListener('click', function (event) {
     }
   }
 
+  showConfirmationDialog(function () {
+    allMails.splice(index, 1);
+  });
+
   if (event.target.classList.contains('deleteImg')) {
-    document.body.classList.add('dialog-visible'); // allMails.splice(index,1)
+    document.body.classList.add('dialog-visible');
   }
 
   showMails(allMails);
@@ -287,7 +292,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52799" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57833" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -50,11 +50,24 @@ let allMails = [
     }
 ]
 
-const overlay = document.querySelector('.overlay')
+function showConfirmationDialog(yesAction) {
+    const overlay = document.querySelector('.overlay')
 
-overlay.addEventListener('click', function (event) {
-    document.body.classList.remove('dialog-visible')
-})
+    overlay.addEventListener('click', function (event) {
+        document.body.classList.remove('dialog-visible')
+    })
+
+    const yesButton = document.querySelector('.deleteMail')
+    //console.log(yesButton)
+
+    yesButton.addEventListener('click', yesAction)
+
+}
+
+
+
+
+
 
 
 const container = document.querySelector('.inboxContainer')
@@ -65,13 +78,7 @@ container.addEventListener('click', function (event) {
     const parent = event.target.parentElement
     //console.log(parent)
     const index = parent.dataset.index
-    const yesButton = document.querySelector('.deleteMail')
-    //console.log(yesButton)
 
-    yesButton.addEventListener('click', function (event) {
-        console.log(event)
-        allMails.splice(index, 1)
-    })
     const deleteButton = document.querySelector('.deleteImg')
     //console.log(deleteButton)
     const overlay = document.querySelector('.overlay')
@@ -88,16 +95,22 @@ container.addEventListener('click', function (event) {
 
     }
 
+    showConfirmationDialog(function () {
+        allMails.splice(index, 1)
+
+
+    })
+
 
     if (event.target.classList.contains('deleteImg')) {
         document.body.classList.add('dialog-visible')
-
-        // allMails.splice(index,1)
     }
 
 
     showMails(allMails)
 })
+
+
 
 function showMails(allMails) {
 
@@ -162,5 +175,4 @@ input.addEventListener('input', function (event) {
 
     showMails(filteredMails)
 })
-
 
