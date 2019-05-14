@@ -160,8 +160,11 @@ var allMails = [{
   subject: 'Your e-mazbata is here',
   mail: 'Dear Leyda,to get your mazbata...',
   isFavorited: false
-}]; // is favorited ekle.containera event listener ekle (click)
-
+}];
+var overlay = document.querySelector('.overlay');
+overlay.addEventListener('click', function (event) {
+  document.body.classList.remove('dialog-visible');
+});
 var container = document.querySelector('.inboxContainer'); //console.log(container)
 
 container.addEventListener('click', function (event) {
@@ -172,6 +175,8 @@ container.addEventListener('click', function (event) {
   var deleteButton = document.querySelector('.deleteImg'); //console.log(deleteButton)
 
   var overlay = document.querySelector('.overlay'); //console.log(overlay)
+
+  var dialog = document.querySelector('.dialog');
 
   if (event.target.classList.contains('star')) {
     console.log("you've clicked on ".concat(index));
@@ -184,11 +189,8 @@ container.addEventListener('click', function (event) {
   }
 
   if (event.target.classList.contains('deleteImg')) {
-    document.body.classList.add('modal-visible');
-  } // if(event.target.classList.contains('deleteImg')) {
-  //     allMails.splice(index,1)
-  // }
-
+    document.body.classList.add('dialog-visible'); // allMails.splice(index,1)
+  }
 
   showMails(allMails);
 });
@@ -279,7 +281,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50134" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52799" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

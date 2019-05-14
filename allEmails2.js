@@ -50,7 +50,12 @@ let allMails = [
     }
 ]
 
-// is favorited ekle.containera event listener ekle (click)
+const overlay = document.querySelector('.overlay')
+
+overlay.addEventListener('click',function(event){
+        document.body.classList.remove('dialog-visible')
+    })
+
 
 const container = document.querySelector('.inboxContainer')
 //console.log(container)
@@ -64,6 +69,7 @@ container.addEventListener('click', function(event){
     //console.log(deleteButton)
     const overlay = document.querySelector('.overlay')
     //console.log(overlay)
+    const dialog = document.querySelector('.dialog')
     if(event.target.classList.contains('star')) {
         console.log(`you've clicked on ${index}`)
         if(allMails[index].isFavorited) {
@@ -73,12 +79,13 @@ container.addEventListener('click', function(event){
         }
 
     } 
+    
+    
     if(event.target.classList.contains('deleteImg')) {
-        document.body.classList.add('modal-visible')
+        document.body.classList.add('dialog-visible')
+        
+        // allMails.splice(index,1)
     }
-    // if(event.target.classList.contains('deleteImg')) {
-    //     allMails.splice(index,1)
-    // }
     
     showMails(allMails)
 })
