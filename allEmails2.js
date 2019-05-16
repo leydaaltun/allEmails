@@ -50,21 +50,34 @@ let allMails = [
     }
 ]
 
+const yesButton = document.querySelector('.deleteMail')
+const overlay = document.querySelector('.overlay')
+
 function showConfirmationDialog(yesAction) {
     document.body.classList.add('dialog-visible')
-    const overlay = document.querySelector('.overlay')
-
+    //added visible class to body
     overlay.addEventListener('click', function (event) {
         document.body.classList.remove('dialog-visible')
-    })
+    }) //added click event to overlay
 
-    const yesButton = document.querySelector('.deleteMail')
-    //console.log(yesButton)
 
-    yesButton.addEventListener('click', yesAction)
+    function newAction() {
+        yesAction()
+        yesButton.removeEventListener('click', newAction)
 
+        document.body.classList.remove('dialog-visible')
+
+    }
+
+    yesButton.addEventListener('click',newAction)
 }
 
+yesButton.addEventListener('click', function () {
+    showConfirmationDialog(function () {
+        console.log('zzzzz')
+       
+    })
+})
 
 
 
@@ -93,23 +106,21 @@ container.addEventListener('click', function (event) {
             allMails[index].isFavorited = true
         }
 
-
+        showMails(allMails)
     }
 
-   
+
 
     if (event.target.classList.contains('deleteImg')) {
         showConfirmationDialog(function () {
             allMails.splice(index, 1)
-    
-    
+            showMails(allMails)
+
         })
-    
-        
+
+
     }
 
-
-    showMails(allMails)
 })
 
 

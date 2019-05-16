@@ -161,18 +161,30 @@ var allMails = [{
   mail: 'Dear Leyda,to get your mazbata...',
   isFavorited: false
 }];
+var yesButton = document.querySelector('.deleteMail');
+var overlay = document.querySelector('.overlay');
 
 function showConfirmationDialog(yesAction) {
-  document.body.classList.add('dialog-visible');
-  var overlay = document.querySelector('.overlay');
+  document.body.classList.add('dialog-visible'); //added visible class to body
+
   overlay.addEventListener('click', function (event) {
     document.body.classList.remove('dialog-visible');
-  });
-  var yesButton = document.querySelector('.deleteMail'); //console.log(yesButton)
+  }); //added click event to overlay
 
-  yesButton.addEventListener('click', yesAction);
+  function newAction() {
+    yesAction();
+    yesButton.removeEventListener('click', newAction);
+    document.body.classList.remove('dialog-visible');
+  }
+
+  yesButton.addEventListener('click', newAction);
 }
 
+yesButton.addEventListener('click', function () {
+  showConfirmationDialog(function () {
+    console.log('zzzzz');
+  });
+});
 var container = document.querySelector('.inboxContainer'); //console.log(container)
 
 container.addEventListener('click', function (event) {
@@ -194,15 +206,16 @@ container.addEventListener('click', function (event) {
     } else {
       allMails[index].isFavorited = true;
     }
+
+    showMails(allMails);
   }
 
   if (event.target.classList.contains('deleteImg')) {
     showConfirmationDialog(function () {
       allMails.splice(index, 1);
+      showMails(allMails);
     });
   }
-
-  showMails(allMails);
 });
 
 function showMails(allMails) {
