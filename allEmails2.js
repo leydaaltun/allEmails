@@ -58,7 +58,8 @@ function showConfirmationDialog(yesAction) {
     //added visible class to body
     overlay.addEventListener('click', function (event) {
         document.body.classList.remove('dialog-visible')
-    }) //added click event to overlay
+        yesButton.removeEventListener('click',newAction)
+    }) 
 
 
     function newAction() {
@@ -70,6 +71,7 @@ function showConfirmationDialog(yesAction) {
     }
 
     yesButton.addEventListener('click',newAction)
+    
 }
 
 yesButton.addEventListener('click', function () {

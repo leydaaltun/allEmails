@@ -169,7 +169,8 @@ function showConfirmationDialog(yesAction) {
 
   overlay.addEventListener('click', function (event) {
     document.body.classList.remove('dialog-visible');
-  }); //added click event to overlay
+    yesButton.removeEventListener('click', newAction);
+  });
 
   function newAction() {
     yesAction();
