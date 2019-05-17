@@ -163,6 +163,7 @@ var allMails = [{
 }];
 var yesButton = document.querySelector('.deleteMail');
 var overlay = document.querySelector('.overlay');
+var noButton = document.querySelector('.dontDeleteMail');
 
 function showConfirmationDialog(yesAction) {
   document.body.classList.add('dialog-visible'); //added visible class to body
@@ -179,6 +180,9 @@ function showConfirmationDialog(yesAction) {
   }
 
   yesButton.addEventListener('click', newAction);
+  noButton.addEventListener('click', function (event) {
+    document.body.classList.remove('dialog-visible');
+  });
 }
 
 yesButton.addEventListener('click', function () {

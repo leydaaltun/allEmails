@@ -52,6 +52,7 @@ let allMails = [
 
 const yesButton = document.querySelector('.deleteMail')
 const overlay = document.querySelector('.overlay')
+const noButton = document.querySelector('.dontDeleteMail')
 
 function showConfirmationDialog(yesAction) {
     document.body.classList.add('dialog-visible')
@@ -71,8 +72,16 @@ function showConfirmationDialog(yesAction) {
     }
 
     yesButton.addEventListener('click',newAction)
-    
+
+    noButton.addEventListener('click',function(event){
+        document.body.classList.remove('dialog-visible')
+    })
+
+
+
 }
+
+
 
 yesButton.addEventListener('click', function () {
     showConfirmationDialog(function () {
