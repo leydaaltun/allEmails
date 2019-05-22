@@ -242,7 +242,7 @@ function showMails(allMails) {
   }); //container.innerHTML = html
 
   if (html === '') {
-    container.innerHTML = '';
+    container.innerHTML = "<div class=\"error\">Sorry,no e-mails found.</div>";
   } else {
     container.innerHTML = html;
   }
@@ -309,7 +309,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57833" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60302" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -158,7 +158,7 @@ function showMails(allMails) {
 
     //container.innerHTML = html
     if (html === '') {
-        container.innerHTML = ''
+        container.innerHTML = `<div class="error">Sorry,no e-mails found.</div>`
     } else {
         container.innerHTML = html
     }
