@@ -27,6 +27,7 @@ form {
     display: inline-block;
     box-sizing: border-box;
     margin: 10px;
+    width: calc(100% - 20px);
 }
 
 input {
