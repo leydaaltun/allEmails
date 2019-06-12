@@ -26,8 +26,7 @@
     form {
         display: inline-block;
         box-sizing: border-box;
-        margin: 10px;
-        width: calc(100% - 20px);
+        width: 100%;
     }
     
     input {
@@ -356,13 +355,14 @@
             box-sizing: border-box;
         }
         input {
-            width: 100%;
+            width: calc(100% - 20px);
             height: 46px;
             border-radius: 5px;
             box-sizing: border-box;
             padding-left: 55px;
             border-width: thin;
             border: 1px solid lightgray;
+            margin-left: 10px;
         }
         input::placeholder {
             font-family: sans-serif;
