@@ -238,7 +238,7 @@ function showMails(allMails) {
       starClass = 'star favedImg';
     }
 
-    html += "<div class=\"eMail\" data-index=\"".concat(index, "\">\n        <span class=\"date\">").concat(date, "</span>\n        <span class=\"username\">").concat(from, "</span>\n        <span class=\"subject\">").concat(subject, "</span>\n        <p class=\"contentMail\">").concat(mail, "</p>\n        <button class=\"").concat(starClass, "\"  ></button>\n        <button class=\"deleteImg\"></button>");
+    html += "<div class=\"eMail\" data-index=\"".concat(index, "\">\n        <span class=\"date\">").concat(date, "</span>\n        <span class=\"username\">").concat(from, "</span>\n        <span class=\"subject\">").concat(subject, "</span>\n        <p class=\"contentMail\">").concat(mail, "</p>\n        <button class=\"").concat(starClass, "\"  ></button>\n        <button class=\"deleteImg\"></button></div>");
   }); //container.innerHTML = html
 
   if (html === '') {

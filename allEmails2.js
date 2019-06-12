@@ -1,5 +1,4 @@
-let allMails = [
-    {
+let allMails = [{
         date: '23 Jan',
         from: 'Susanne',
         subject: 'About holiday at July',
@@ -56,11 +55,11 @@ const noButton = document.querySelector('.dontDeleteMail')
 
 function showConfirmationDialog(yesAction) {
     document.body.classList.add('dialog-visible')
-    //added visible class to body
-    overlay.addEventListener('click', function (event) {
+        //added visible class to body
+    overlay.addEventListener('click', function(event) {
         document.body.classList.remove('dialog-visible')
-        yesButton.removeEventListener('click',newAction)
-    }) 
+        yesButton.removeEventListener('click', newAction)
+    })
 
 
     function newAction() {
@@ -71,9 +70,9 @@ function showConfirmationDialog(yesAction) {
 
     }
 
-    yesButton.addEventListener('click',newAction)
+    yesButton.addEventListener('click', newAction)
 
-    noButton.addEventListener('click',function(event){
+    noButton.addEventListener('click', function(event) {
         document.body.classList.remove('dialog-visible')
     })
 
@@ -83,10 +82,10 @@ function showConfirmationDialog(yesAction) {
 
 
 
-yesButton.addEventListener('click', function () {
-    showConfirmationDialog(function () {
+yesButton.addEventListener('click', function() {
+    showConfirmationDialog(function() {
         console.log('zzzzz')
-       
+
     })
 })
 
@@ -96,18 +95,18 @@ yesButton.addEventListener('click', function () {
 
 
 const container = document.querySelector('.inboxContainer')
-//console.log(container)
+    //console.log(container)
 
-container.addEventListener('click', function (event) {
+container.addEventListener('click', function(event) {
     //console.log(event)
     const parent = event.target.parentElement
-    //console.log(parent)
+        //console.log(parent)
     const index = parent.dataset.index
 
     const deleteButton = document.querySelector('.deleteImg')
-    //console.log(deleteButton)
+        //console.log(deleteButton)
     const overlay = document.querySelector('.overlay')
-    //console.log(overlay)
+        //console.log(overlay)
     const dialog = document.querySelector('.dialog')
     if (event.target.classList.contains('star')) {
         console.log(`you've clicked on ${index}`)
@@ -123,7 +122,7 @@ container.addEventListener('click', function (event) {
 
 
     if (event.target.classList.contains('deleteImg')) {
-        showConfirmationDialog(function () {
+        showConfirmationDialog(function() {
             allMails.splice(index, 1)
             showMails(allMails)
 
@@ -140,7 +139,7 @@ function showMails(allMails) {
 
     let html = ''
 
-    allMails.forEach(function ({ date, from, subject, mail, isFavorited }, index) {
+    allMails.forEach(function({ date, from, subject, mail, isFavorited }, index) {
         //console.log(index)
         let starClass = 'star favImg'
         if (isFavorited) {
@@ -152,7 +151,7 @@ function showMails(allMails) {
         <span class="subject">${subject}</span>
         <p class="contentMail">${mail}</p>
         <button class="${starClass}"  ></button>
-        <button class="deleteImg"></button>`
+        <button class="deleteImg"></button></div>`
 
     })
 
@@ -167,13 +166,13 @@ function showMails(allMails) {
 showMails(allMails)
 
 const input = document.querySelector('input')
-//console.log(input)
+    //console.log(input)
 
-input.addEventListener('input', function (event) {
+input.addEventListener('input', function(event) {
     const searchKeyWord = event.target.value.toLowerCase()
-    //console.log(searchKeyWord)
+        //console.log(searchKeyWord)
 
-    const filteredMails = allMails.filter(function ({ date, from, subject, mail }) {
+    const filteredMails = allMails.filter(function({ date, from, subject, mail }) {
 
         if (date.toLowerCase().includes(searchKeyWord)) {
             return true
@@ -199,4 +198,3 @@ input.addEventListener('input', function (event) {
 
     showMails(filteredMails)
 })
-
