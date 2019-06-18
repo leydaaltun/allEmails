@@ -238,7 +238,7 @@ function showMails(allMails) {
       starClass = 'star favedImg';
     }
 
-    html += "<div class=\"eMail\" data-index=\"".concat(index, "\">\n        <span class=\"date\">").concat(date, "</span>\n        <span class=\"username\">").concat(from, "</span>\n        <span class=\"subject\">").concat(subject, "</span>\n        <p class=\"contentMail\">").concat(mail, "</p>\n        <button class=\"").concat(starClass, "\"  ></button>\n        <button class=\"deleteImg\"></button></div>");
+    html += "<div class=\"eMail\" data-index=\"".concat(index, "\">\n        <span class=\"date\">").concat(date, "</span>\n        <span class=\"username\">").concat(from, "</span>\n        <span class=\"subject\">").concat(subject, "</span>\n        <p class=\"contentMail\">").concat(mail, "</p>\n        <div class=\"buttons\"><button class=\"").concat(starClass, "\"  ></button>\n        <button class=\"deleteImg\"></button></div></div>");
   }); //container.innerHTML = html
 
   if (html === '') {
@@ -309,7 +309,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49959" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59221" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

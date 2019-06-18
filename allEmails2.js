@@ -150,8 +150,8 @@ function showMails(allMails) {
         <span class="username">${from}</span>
         <span class="subject">${subject}</span>
         <p class="contentMail">${mail}</p>
-        <button class="${starClass}"  ></button>
-        <button class="deleteImg"></button></div>`
+        <div class="buttons"><button class="${starClass}"  ></button>
+        <button class="deleteImg"></button></div></div>`
 
     })
 

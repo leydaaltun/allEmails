@@ -20,10 +20,11 @@ h1 {
     font-weight: 600;
     font-size: 30px;
     box-sizing: border-box;
+    margin-bottom: 5px;
 }
 
 input {
-    width: 356px;
+    width: 350px;
     height: 46px;
     border-radius: 5px;
     box-sizing: border-box;
@@ -50,23 +51,37 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 10px;
 }
 
 .eMail {
-    height: 120px;
+    height: 101px;
     display: flex;
     flex-wrap: wrap;
-}
-
-.date {
-    order: 1;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 5px;
+    background-color: rgb(255, 255, 255);
+    justify-content: flex-end;
 }
 
 .username,
 .subject,
 .contentMail {
-    width: 100%;
+    width: 200px;
+    margin-top: 7px;
+    background-color: rgb(255, 255, 255);
+}
+
+.date {
+    background-color: rgb(255, 255, 255);
+    order: 1;
+    align-self: flex-end;
+}
+
+.buttons {
+    width: 120px;
+    display: flex;
+    background-color: rgb(255, 255, 255);
 }
 
 .favImg,
