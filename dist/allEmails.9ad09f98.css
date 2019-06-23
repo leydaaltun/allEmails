@@ -121,6 +121,59 @@ input::placeholder {
     text-align: center;
 }
 
+.dialogTitle {
+    box-sizing: border-box;
+    position: absolute;
+    left: 42px;
+    top: 222px;
+    font-size: 22px;
+    color: white;
+}
+
+.deleteMail {
+    border: 1px solid silver;
+    width: 150px;
+    height: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 301px;
+    left: 95px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.dontDeleteMail {
+    border: 1px solid silver;
+    width: 150px;
+    height: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 360px;
+    left: 95px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.deleteMail:hover,
+.dontDeleteMail:hover {
+    background-color: #0591FD;
+    color: white;
+}
+
+body.dialog-visible .overlay,
+body.dialog-visible .dialog {
+    /*body'de dialog-visible varsa overlay görünür olucak.*/
+    visibility: visible;
+}
+
+.error {
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    top: 200px;
+    left: 100px;
+}
+
 
 /*for tablets*/
 
@@ -130,6 +183,41 @@ input::placeholder {
     }
 }
 
-@media (min-width: 1000px) {}
+
+/*for deskops*/
+
+@media (min-width: 1000px) {
+    .container {
+        margin: 50px 100px 0 285px;
+        box-sizing: border-box;
+        width: 800px;
+    }
+    h1 {
+        margin-bottom: 50px;
+    }
+    .eMail {
+        flex-direction: row;
+        height: 45px;
+    }
+    .date,
+    .username,
+    .subject,
+    .contentMail,
+    .buttons {
+        align-self: center;
+    }
+    .date {
+        width: 100px;
+    }
+    .username {
+        width: 120px;
+    }
+    .subject {
+        width: 200px;
+    }
+    .contentMail {
+        width: 300px;
+    }
+}
 
 /*# sourceMappingURL=/allEmails.9ad09f98.css.map */
