@@ -125,6 +125,7 @@ input::placeholder {
     justify-content: center;
     box-sizing: border-box;
     margin-top: 100px;
+    position: fixed;
 }
 
 .dialogTitle {
