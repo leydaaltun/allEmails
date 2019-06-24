@@ -98,11 +98,12 @@ const container = document.querySelector('.inboxContainer')
     //console.log(container)
 
 container.addEventListener('click', function(event) {
-    //console.log(event)
-    const parent = event.target.parentElement
-        //console.log(parent)
+    console.log(event)
+    const parent = event.target.parentElement.parentElement
+        // const buttons = document.querySelector('.button')
+        // const parent = buttons.closest('.button')
+        // console.log(parent)
     const index = parent.dataset.index
-
     const deleteButton = document.querySelector('.deleteImg')
         //console.log(deleteButton)
     const overlay = document.querySelector('.overlay')
@@ -110,6 +111,7 @@ container.addEventListener('click', function(event) {
     const dialog = document.querySelector('.dialog')
     if (event.target.classList.contains('star')) {
         console.log(`you've clicked on ${index}`)
+        console.log(allMails)
         if (allMails[index].isFavorited) {
             allMails[index].isFavorited = false
         } else {
@@ -150,7 +152,7 @@ function showMails(allMails) {
         <span class="username">${from}</span>
         <span class="subject">${subject}</span>
         <p class="contentMail">${mail}</p>
-        <div class="buttons"><button class="${starClass}"  ></button>
+        <div class="buttons"><button class="${starClass}"></button>
         <button class="deleteImg"></button></div></div>`
 
     })

@@ -193,8 +193,10 @@ yesButton.addEventListener('click', function () {
 var container = document.querySelector('.inboxContainer'); //console.log(container)
 
 container.addEventListener('click', function (event) {
-  //console.log(event)
-  var parent = event.target.parentElement; //console.log(parent)
+  console.log(event);
+  var parent = event.target.parentElement.parentElement; // const buttons = document.querySelector('.button')
+  // const parent = buttons.closest('.button')
+  // console.log(parent)
 
   var index = parent.dataset.index;
   var deleteButton = document.querySelector('.deleteImg'); //console.log(deleteButton)
@@ -205,6 +207,7 @@ container.addEventListener('click', function (event) {
 
   if (event.target.classList.contains('star')) {
     console.log("you've clicked on ".concat(index));
+    console.log(allMails);
 
     if (allMails[index].isFavorited) {
       allMails[index].isFavorited = false;
@@ -238,7 +241,7 @@ function showMails(allMails) {
       starClass = 'star favedImg';
     }
 
-    html += "<div class=\"eMail\" data-index=\"".concat(index, "\">\n        <span class=\"date\">").concat(date, "</span>\n        <span class=\"username\">").concat(from, "</span>\n        <span class=\"subject\">").concat(subject, "</span>\n        <p class=\"contentMail\">").concat(mail, "</p>\n        <div class=\"buttons\"><button class=\"").concat(starClass, "\"  ></button>\n        <button class=\"deleteImg\"></button></div></div>");
+    html += "<div class=\"eMail\" data-index=\"".concat(index, "\">\n        <span class=\"date\">").concat(date, "</span>\n        <span class=\"username\">").concat(from, "</span>\n        <span class=\"subject\">").concat(subject, "</span>\n        <p class=\"contentMail\">").concat(mail, "</p>\n        <div class=\"buttons\"><button class=\"").concat(starClass, "\"></button>\n        <button class=\"deleteImg\"></button></div></div>");
   }); //container.innerHTML = html
 
   if (html === '') {
@@ -309,7 +312,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52150" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50450" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
