@@ -100,10 +100,11 @@ const container = document.querySelector('.inboxContainer')
 container.addEventListener('click', function(event) {
     console.log(event)
     const parent = event.target.parentElement.parentElement
-        // const buttons = document.querySelector('.button')
+        //const buttons = document.querySelector('.button')
         // const parent = buttons.closest('.button')
-        // console.log(parent)
+    console.log(parent)
     const index = parent.dataset.index
+    console.log(index)
     const deleteButton = document.querySelector('.deleteImg')
         //console.log(deleteButton)
     const overlay = document.querySelector('.overlay')

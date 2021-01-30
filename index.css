@@ -24,6 +24,7 @@ h1 {
     font-size: 30px;
     box-sizing: border-box;
     margin: 10px;
+    text-align: center;
 }
 
 input {

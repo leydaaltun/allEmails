@@ -196,8 +196,8 @@ container.addEventListener('click', function (event) {
   console.log(event);
   var parent = event.target.parentElement.parentElement; // const buttons = document.querySelector('.button')
   // const parent = buttons.closest('.button')
-  // console.log(parent)
 
+  console.log(parent);
   var index = parent.dataset.index;
   var deleteButton = document.querySelector('.deleteImg'); //console.log(deleteButton)
 
@@ -312,7 +312,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52723" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50657" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
